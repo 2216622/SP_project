@@ -63,6 +63,7 @@ The following Python packages are required:
 
 ```bash
 pip install gradio numpy pandas scikit-learn matplotlib nest_asyncio
+```
 
 ## How to Run
 
