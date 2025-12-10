@@ -1,70 +1,76 @@
 AI-Based Dynamic School Bus Routing Smart System for Optimized Routes and Lower Fuel Consumption
-This repository presents an AI-driven system designed to cluster students geographically and generate optimized school bus routes.
-The goal is to reduce fuel consumption, minimize total travel time, and ensure student ride-time constraints are respected.
-The project integrates several components, including clustering, routing optimization, constraint handling, and an interactive web interface.
-Contents
-1. Clustering Module
-This module uses K-Means to assign students into feasible bus clusters.
-Key characteristics:
+This project presents an AI-driven system designed to cluster students geographically and generate optimized school bus routes.
+The system aims to reduce fuel consumption, minimize travel time, and ensure that student ride-time constraints are satisfied.
+The project integrates clustering, routing optimization algorithms, constraint handling, and an interactive web interface.
+Project Contents
+1. Clustering Module (K-Means)
+This module uses K-Means++ to group students into feasible bus clusters.
+Key features:
 Capacity constraints:
 Minimum students per bus: 14
 Maximum students per bus: 44
-Internal cluster evaluation metrics:
+Evaluation metrics used:
 Silhouette Score
-Calinski–Harabasz Score
+Calinski–Harabasz Index
 Davies–Bouldin Index
-Automatic selection of the optimal number of buses (K) based on combined ranking of the metrics.
+Automatic selection of the optimal number of buses (K) based on ranking the internal evaluation metrics.
 2. Routing Optimization Module
-This module generates optimized morning and afternoon bus routes for each cluster.
-Included algorithms and techniques:
-Nearest Neighbor for initial solution construction
+Generates optimized morning and afternoon bus routes for each cluster.
+Algorithms and techniques included:
+Nearest Neighbor for initial route construction
 Removal operators:
 Random Remove
 Worst Remove
 Shaw Remove
-Regret-2 insertion for reconstructing solutions
-Simulated Annealing acceptance mechanism
+Regret-2 insertion for reconstruction
+Simulated Annealing acceptance criteria
 Final refinement using 2-Opt
-Enforcement of a 90-minute maximum student ride-time constraint
-The output includes total travel time, maximum individual student ride time, and total route distance for each bus.
+Enforcement of a 90-minute maximum student ride time
+The output includes:
+Total route time
+Maximum individual student ride time
+Total route distance
 3. Web Interface (Gradio)
-The system includes a complete multi-page interface:
+The system provides a complete four-page interactive user interface:
 Page 1: Welcome Page
-Overview of the system and an introduction screen.
-Page 2: Upload and Clustering
-Allows the user to upload a merged CSV file containing:
-School location (first row)
-Student locations
-Distance and time matrices
-Displays the clustering results, ranking table, and bus distribution summary.
-Page 3: Bus and Attendance Selection
-Allows selecting a bus (cluster) and marking present or absent students.
-Page 4: Routing Output
+Displays an introduction to the system.
+Page 2: File Upload and Clustering
+Allows uploading a merged CSV file containing:
+School coordinates (first row)
+Student coordinates
+Distance matrix
+Time matrix
+Displays:
+Ranking table
+Summary of student distribution across buses
+Page 3: Bus Selection and Attendance
+Select a bus cluster and mark present or absent students.
+Page 4: Routing Results
 Generates and displays:
 Morning route
 Afternoon route
 Route plots
-Travel times and distances
+Travel-time and distance statistics
 Constraint validation
 Requirements
-Install the required Python packages:
+Install all required Python packages:
 pip install gradio numpy pandas scikit-learn matplotlib nest_asyncio
 How to Run
-Launch the Gradio interface by running the main script.
-Upload the merged CSV student data file containing coordinates, distance matrix, and time matrix.
-Execute the clustering step to determine bus assignments.
-Select a bus and mark attendance.
+Launch the Gradio interface.
+Upload the merged CSV file containing school and student data.
+Run clustering to determine bus assignments.
+Select a bus and adjust attendance (optional).
 Generate morning and afternoon routes.
-Review the route plots and performance statistics.
-Input File Format
-The merged CSV file should contain the following columns:
-lat, lon: Coordinates of school and students
+Review the plotted routes and the performance statistics.
+Input File Format (CSV)
+The merged CSV file must include:
+lat, lon: School and student coordinates
 distance_*: Distance matrix columns
 time_*: Time matrix columns
-student_name: Optional field for listing student names
+student_name: Optional field for student names
 Row 0 must represent the school.
 All subsequent rows represent students.
-Contributors
+Prepared By
 Aseel Alammari — 2211750
 Dalia Babtain — 2211022
 Dhai Alshareef — 2210251
@@ -74,5 +80,5 @@ Zahrah Saleh — 2216621
 Supervisor
 Dr. Enas Jambi
 Project Summary
-This project provides an intelligent end-to-end solution for automatic school bus routing based on real geographic data.
-By integrating clustering, routing heuristics, constraints, and visualization, the system offers a practical tool for operational decision-making aimed at improving efficiency and reducing transportation costs.
+This project provides an AI-based end-to-end solution for school bus route optimization using geographical student data.
+By integrating clustering, heuristic optimization, constraint enforcement, and a user-friendly interactive interface, the system supports decision-making that reduces operational costs and improves transportation efficiency.
