@@ -11,9 +11,9 @@ The system takes as input a merged CSV file that contains the school and student
 - Checks whether the maximum allowed ride time per student is respected.
 - Visualizes the resulting routes through an interactive web interface.
 
-## Clustering Module (K-Means)
+## Clustering Module (K-Means++)
 
-The clustering stage uses the K-Means algorithm to assign students to buses based on their locations.
+The clustering stage uses the K-Means++ algorithm to assign students to buses based on their locations.
 
 Main characteristics:
 
