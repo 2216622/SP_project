@@ -64,3 +64,48 @@ The following Python packages are required:
 ```bash
 pip install gradio numpy pandas scikit-learn matplotlib nest_asyncio
 
+## How to Run
+
+1. Launch the Gradio application from the main Python script.
+2. Upload the merged CSV file that includes:
+   - School coordinates (first row)
+   - Student coordinates
+   - Distance matrix columns
+   - Time matrix columns
+3. Run the clustering step to determine bus assignments.
+4. Select a bus and adjust student attendance if needed.
+5. Generate the morning and afternoon routes.
+6. Review the plotted routes and the performance statistics.
+
+## Input File Format (CSV)
+
+The merged CSV file must include at least the following columns:
+
+- `lat`, `lon` for school and student coordinates  
+- `distance_*` columns representing the distance matrix  
+- `time_*` columns representing the time matrix  
+- `student_name` (optional) for student names  
+
+Row 0 must represent the school.  
+All remaining rows represent students.
+
+## Prepared By
+
+- Aseel Alammari — 2211750  
+- Dalia Babtain — 2211022  
+- Dhai Alshareef — 2210251  
+- Mayaseim Badhurays — 2210715  
+- Noor Bamuhair — 2110908  
+- Zahrah Saleh — 2216621  
+
+## Supervisor
+
+- Dr. Enas Jambi
+
+## Project Summary
+
+This project provides an AI-based solution for school bus route optimization using real geographic data.  
+By combining clustering, heuristic routing algorithms, constraint handling, and an interactive user interface,  
+the system enhances decision-making and reduces transportation costs.
+
+
